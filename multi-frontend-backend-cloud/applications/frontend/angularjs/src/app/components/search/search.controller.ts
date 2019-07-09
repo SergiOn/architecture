@@ -1,11 +1,11 @@
 import { IWindowService } from 'angular';
 import { StateService } from 'angular-ui-router';
 
-export class HomeController {
+export class SearchController {
   name: string;
 
   constructor(private $state: StateService, private $window: IWindowService) {
-    this.name = 'Home';
+    this.name = 'Search';
   }
 
   goHome(): void {

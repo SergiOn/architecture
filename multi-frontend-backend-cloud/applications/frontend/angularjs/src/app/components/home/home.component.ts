@@ -1,7 +1,6 @@
-// @ts-ignore
-import template from './home.html';
+import template from './home.template.html';
 import { HomeController } from './home.controller';
-import './home.scss';
+import './home.style.scss';
 
 export const HomeComponent = {
   restrict: 'E',
