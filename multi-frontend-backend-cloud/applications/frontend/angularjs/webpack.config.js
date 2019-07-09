@@ -2,14 +2,14 @@ const webpack = require('webpack');
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
-    mode: 'development',
     entry: {
         main: path.resolve(__dirname, 'src', 'main.ts')
     },
     output: {
-        filename: '[name].bundle.js',
+        filename: '[name].bundle.[hash:4].js',
         path: path.resolve(__dirname, 'dist')
     },
     devtool: 'inline-source-map',
@@ -32,7 +32,6 @@ module.exports = {
         }, {
             test: /\.html$/,
             loader: 'html-loader',
-            options: { minimize: false }
         }]
     },
     resolve: {
@@ -46,7 +45,13 @@ module.exports = {
         new MiniCssExtractPlugin({
             filename: '[name].[contenthash:4].css',
             chunkFilename: '[id].[contenthash:4].css'
-        })
+        }),
+        new CleanWebpackPlugin(),
+        // new webpack.SourceMapDevToolPlugin({
+        //     test: ['.js', '.ts', '.css', '.scss'],
+        //     filename: '[name].js.map',
+        //     exclude: ['vendor.']
+        // })
     ],
     optimization: {
         splitChunks: {
@@ -57,6 +62,15 @@ module.exports = {
                     chunks: 'all'
                 }
             }
+        }
+    },
+    devServer: {
+        historyApiFallback: true,
+        open: true,
+        overlay: true,
+        port: 4100,
+        proxy: {
+            // https://webpack.js.org/configuration/dev-server/#devserverproxy
         }
     }
 };
