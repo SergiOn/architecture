@@ -20,7 +20,7 @@ module.exports = {
                 loader: 'ng-annotate-loader',
                 options: { ngAnnotate: 'ng-annotate-patched', sourcemap: true }
             }, {
-                loader: 'ts-loader',
+                loader: 'ts-loader'
             }],
             exclude: /node_modules/
         }, {
@@ -31,7 +31,7 @@ module.exports = {
             use: [MiniCssExtractPlugin.loader, 'css-loader', 'resolve-url-loader', 'sass-loader']
         }, {
             test: /\.html$/,
-            loader: 'html-loader',
+            loader: 'html-loader'
         }]
     },
     resolve: {
@@ -46,7 +46,7 @@ module.exports = {
             filename: '[name].[contenthash:4].css',
             chunkFilename: '[id].[contenthash:4].css'
         }),
-        new CleanWebpackPlugin(),
+        new CleanWebpackPlugin()
         // new webpack.SourceMapDevToolPlugin({
         //     test: ['.js', '.ts', '.css', '.scss'],
         //     filename: '[name].js.map',
