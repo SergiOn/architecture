@@ -28,6 +28,10 @@ export class PaxController {
     this.$window.location.href = 'accommodation';
   }
 
+  goAccommodationSSR(): void {
+    this.$window.location.href = 'accommodation-ssr';
+  }
+
   goPayment(): void {
     this.$window.location.href = 'payment';
   }
