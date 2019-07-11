@@ -5,6 +5,8 @@ export class CustomizeController {
   name: string;
 
   constructor(private $state: StateService, private $window: IWindowService) {
+    'ngInject';
+
     this.name = 'Customize';
   }
 
