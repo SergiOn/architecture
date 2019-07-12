@@ -18,3 +18,5 @@ https://blog.angular-university.io/angular-universal/
 https://github.com/angular/universal
 
 https://github.com/angular/universal-starter
+
+https://hub.docker.com/_/nginx
