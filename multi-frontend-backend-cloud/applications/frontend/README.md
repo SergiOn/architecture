@@ -20,3 +20,20 @@ https://github.com/angular/universal
 https://github.com/angular/universal-starter
 
 https://hub.docker.com/_/nginx
+
+https://stackoverflow.com/questions/6312872/how-can-i-get-the-current-date-in-yyyy-mm-dd-format-in-os-x-bash
+
+#### Commands
+
+docker exec -it <container> /bin/sh
+
+docker build -t "angularjs:$(date -u +'%Y-%m-%dT%H-%M-%SZ')" .
+
+docker image ls
+
+docker run -d -p 4100:80 angularjs:2019-07-12T22-56-17Z
+
+docker container ls
+docker container ls -a
+docker container kill/stop <container>
+docker container rm <container>
