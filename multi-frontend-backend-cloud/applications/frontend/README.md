@@ -31,11 +31,17 @@ https://github.com/angular/universal-starter
 
 https://medium.com/@MarkPieszak/angular-universal-server-side-rendering-deep-dive-dc442a6be7b7
 
+https://nodejs.org/de/docs/guides/nodejs-docker-webapp/
+
+https://hub.docker.com/_/node/?tab=description&page=5
+
 
 #### Commands
 
 docker exec -it <container> /bin/sh
 
+docker build -t angularjs .
+docker build -t "angularjs:$(date -u +'%Y-%m-%dT%H-%M-%SZ')" .
 docker build -t "angularjs:$(date -u +'%Y-%m-%dT%H-%M-%SZ')H$(git log -1 --pretty=%h)" .
 
 docker image ls
@@ -52,3 +58,15 @@ docker container rm <container>
 
 ng add @nguniversal/express-engine --clientProject angular
 npm run build:ssr && npm run serve:ssr
+
+docker image ls
+
+docker build -t angular .
+docker run -d -p 4200:80 angular
+
+docker container ls
+
+docker build -t "angular:$(date -u +'%Y-%m-%dT%H-%M-%SZ')H$(git log -1 --pretty=%h)" .
+
+docker image ls
+docker container ls
