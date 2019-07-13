@@ -11,10 +11,6 @@ export class PaymentComponent {
 
   constructor(private router: Router) {}
 
-  goHome(): void {
-    this.router.navigate(['/home']);
-  }
-
   goAccommodation(): void {
     this.router.navigate(['/accommodation']);
   }
@@ -31,7 +27,7 @@ export class PaymentComponent {
     this.router.navigate(['/confirmation']);
   }
 
-  goRoot(): void {
+  goHome(): void {
     window.location.href = '';
   }
 
