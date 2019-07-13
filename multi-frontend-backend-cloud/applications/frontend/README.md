@@ -27,11 +27,13 @@ https://stackoverflow.com/questions/6312872/how-can-i-get-the-current-date-in-yy
 
 docker exec -it <container> /bin/sh
 
-docker build -t "angularjs:$(date -u +'%Y-%m-%dT%H-%M-%SZ')" .
+docker build -t "angularjs:$(date -u +'%Y-%m-%dT%H-%M-%SZ')H$(git log -1 --pretty=%h)" .
 
 docker image ls
 
 docker run -d -p 4100:80 angularjs:2019-07-12T22-56-17Z
+docker run -d -p 4100:80 angularjs:2019-07-13T10-51-15ZH6e8414d
+docker run -d -p 4100:80 639a63acb356
 
 docker container ls
 docker container ls -a
