@@ -23,6 +23,8 @@ https://hub.docker.com/_/nginx
 
 https://stackoverflow.com/questions/6312872/how-can-i-get-the-current-date-in-yyyy-mm-dd-format-in-os-x-bash
 
+https://angular.io/cli/new
+
 #### Commands
 
 docker exec -it <container> /bin/sh
