@@ -1,5 +1,5 @@
 import express from 'express';
-import { DescriptionController } from './controllers/DescriotionController';
+import { DescriptionController } from 'controllers/DescriptionController';
 
 // Create Express server
 const app = express();

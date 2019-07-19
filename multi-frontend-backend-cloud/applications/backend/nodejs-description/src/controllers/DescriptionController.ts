@@ -26,6 +26,6 @@ export namespace DescriptionController {
       'Cantonese (Yue)': 'Southern China (especially Guangdong province), Hong Kong and Macau',
       'Bahasa Indonesia': 'Although there are over 300 different dialects spoken in Indonesia, Bahasa Indonesia is spoken by much of the population as a second language. It is also very similar to the Malay language of Malaysia'
     });
-  }
+  };
 
 }
