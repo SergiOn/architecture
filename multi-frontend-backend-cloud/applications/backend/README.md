@@ -24,3 +24,19 @@ https://stackoverflow.com/questions/42964102/syntax-for-async-arrow-function
 
 
 #### Commands
+
+docker build -t nodejs-description .
+
+docker run -p 4302:80 nodejs-description
+
+docker run -d -p 4302:80 nodejs-description
+
+docker container ls
+
+docker build -t "nodejs-description:$(date -u +'%Y-%m-%dT%H-%M-%SZ')H$(git log -1 --pretty=%h)" .
+
+docker container run -d -p 4302:80 nodejs-description:2019-07-19T18-22-11ZH7466043
+
+docker image ls
+
+docker container ls
