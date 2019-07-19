@@ -1,4 +1,5 @@
 import express from 'express';
+import { HomeController } from 'controllers/HomeController';
 import { DescriptionController } from 'controllers/DescriptionController';
 
 // Create Express server
@@ -10,7 +11,7 @@ app.set('port', process.env.PORT || 4302);
 /**
  * Primary app routes.
  */
-app.get('/', DescriptionController.getDescription);
+app.get('/', HomeController.getHome);
 app.get('/description', DescriptionController.getDescription);
 
 export { app };

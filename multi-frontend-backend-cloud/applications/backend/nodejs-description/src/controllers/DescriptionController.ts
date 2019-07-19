@@ -4,7 +4,7 @@ export namespace DescriptionController {
 
   export const getDescription = (req: Request, res: Response) => {
     res.status(200).json({
-      Ukraine: 'Ukraine',
+      Ukrainian: 'Ukraine',
       French: 'Apart from France, Belgium and Switzerland this will also be understood in Morocco, Tunisia and Algeria and the sub-Saharan African countries of DR Congo, Côte d’Ivoire, Cameroon, Guinea, Gabon and Mauritius',
       Spanish: 'Outside Spain, Spanish, or Castillian as it is sometimes called, is the main language of all Central and South American countries apart from Brazil. It is also the second most common language in the USA, spoken by more than 34m Hispanic Americans',
       German: 'Germany, Austria and Switzerland',
