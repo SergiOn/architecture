@@ -12,6 +12,7 @@ app.set('port', process.env.PORT || 4302);
  * Primary app routes.
  */
 app.get('/', HomeController.getHome);
-app.get('/description', DescriptionController.getDescription);
+app.get('/descriptions', DescriptionController.getDescriptions);
+app.get('/descriptions/:language', DescriptionController.getDescription);
 
 export { app };
