@@ -78,3 +78,12 @@ docker run -p 4301:80 scala-translation
 docker build -t "scala-translation:$(date -u +'%Y-%m-%dT%H-%M-%SZ')H$(git log -1 --pretty=%h)" .
 
 docker run -d -p 4301:80 scala-translation:2019-07-21T00-03-27ZH5b3420c
+
+
+docker build -t java-family .
+
+docker run -p 4303:80 java-family
+
+docker build -t "java-family:$(date -u +'%Y-%m-%dT%H-%M-%SZ')H$(git log -1 --pretty=%h)" .
+
+docker run -d -p 4303:80 java-family:2019-07-21T13-48-07ZH5938abd
