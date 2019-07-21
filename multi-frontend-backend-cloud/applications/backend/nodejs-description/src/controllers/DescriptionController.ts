@@ -1,4 +1,5 @@
 import { Request, Response } from 'express-serve-static-core';
+import { info } from 'winston';
 
 export namespace DescriptionController {
 
@@ -27,10 +28,17 @@ export namespace DescriptionController {
   };
 
   export const getDescriptions = (req: Request, res: Response) => {
+    info('***** ----- getDescriptions ----- *****');
+
+    // setTimeout(() => {
+    //   res.status(200).json(descriptions);
+    // }, 2000);
     res.status(200).json(descriptions);
   };
 
   export const getDescription = (req: Request, res: Response) => {
+    info('***** ----- getDescription ----- *****');
+
     const language: string = req.params.language;
     const languageCapitalized: string = language ? language.charAt(0).toUpperCase() + language.slice(1) : '';
 

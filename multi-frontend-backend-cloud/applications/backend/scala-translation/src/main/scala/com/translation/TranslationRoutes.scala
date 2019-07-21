@@ -5,7 +5,7 @@ import akka.event.Logging
 import akka.http.scaladsl.marshallers.sprayjson.SprayJsonSupport
 import akka.http.scaladsl.server.Directives._
 import akka.http.scaladsl.server.Route
-import akka.http.scaladsl.server.directives.MethodDirectives.{ delete, get, post }
+import akka.http.scaladsl.server.directives.MethodDirectives.get
 import akka.http.scaladsl.server.directives.PathDirectives.path
 import akka.http.scaladsl.server.directives.RouteDirectives.complete
 import akka.pattern.ask
@@ -32,22 +32,24 @@ trait TranslationRoutes extends SprayJsonSupport {
     pathEndOrSingleSlash {
       complete("Home page: Scala Translation")
     } ~
-    pathPrefix("translations") {
-      concat(
-        pathEnd {
-          get {
-            val translations: Future[Map[String, String]] = (translationRegistryActor ? GetTranslations).mapTo[Map[String, String]]
-            complete(translations)
-          }
-        },
-        path(Segment) { language =>
-          get {
-            val maybeUser: Future[Option[String]] = (translationRegistryActor ? GetTranslation(language)).mapTo[Option[String]]
-            rejectEmptyResponse {
-              complete(maybeUser)
+      pathPrefix("translations") {
+        concat(
+          pathEnd {
+            get {
+              log.info("***** ----- GetTranslations ----- *****")
+//              Thread.sleep(2000)
+              val translations: Future[Map[String, String]] = (translationRegistryActor ? GetTranslations).mapTo[Map[String, String]]
+              complete(translations)
             }
-          }
-        }
-      )
-    }
+          },
+          path(Segment) { language =>
+            get {
+              log.info("***** ----- GetTranslation ----- *****")
+              val maybeUser: Future[Option[String]] = (translationRegistryActor ? GetTranslation(language)).mapTo[Option[String]]
+              rejectEmptyResponse {
+                complete(maybeUser)
+              }
+            }
+          })
+      }
 }

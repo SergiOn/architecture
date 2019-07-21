@@ -1,13 +1,13 @@
 package com.translation
 
-import akka.actor.{Actor, ActorLogging, Props}
+import akka.actor.{ Actor, ActorLogging, Props }
 
 object TranslationRegistryActor {
   final case object GetTranslations
   final case class GetTranslation(language: String)
 
   def props: Props = Props[TranslationRegistryActor]
-//  def props(): Props = Props(new UserRegistryActor())
+  //  def props(): Props = Props(new UserRegistryActor())
 }
 
 class TranslationRegistryActor extends Actor with ActorLogging {
@@ -34,8 +34,7 @@ class TranslationRegistryActor extends Actor with ActorLogging {
     "Swahili" -> "JAMBO / HABARI",
     "Mandarin" -> "NI HAU",
     "Cantonese (Yue)" -> "NAY HOH",
-    "Bahasa Indonesia" -> "HALO"
-  )
+    "Bahasa Indonesia" -> "HALO")
 
   def receive: Receive = {
     case GetTranslations =>
