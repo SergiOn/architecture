@@ -90,3 +90,12 @@ docker run -p 4303:80 java-family
 docker build -t "java-family:$(date -u +'%Y-%m-%dT%H-%M-%SZ')H$(git log -1 --pretty=%h)" .
 
 docker run -d -p 4303:80 java-family:2019-07-21T13-48-07ZH5938abd
+
+
+docker build -t java-greeting .
+
+docker run -p 4300:80 java-greeting
+
+docker build -t "java-greeting:$(date -u +'%Y-%m-%dT%H-%M-%SZ')H$(git log -1 --pretty=%h)" .
+
+docker run -d -p 4300:80 java-greeting:2019-07-21T17-54-10ZHdce7428
