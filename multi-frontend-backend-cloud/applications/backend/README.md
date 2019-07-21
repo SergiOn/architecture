@@ -41,6 +41,10 @@ https://stackoverflow.com/questions/9997292/how-to-read-environment-variables-in
 
 https://stackoverflow.com/questions/43868405/string-parameters-using-akka-http-directives-during-get-requests
 
+https://hub.docker.com/_/openjdk
+
+https://stackoverflow.com/questions/37760999/docker-akka-http-application-endpoint-not-reachable
+
 
 #### Commands
 
@@ -59,3 +63,18 @@ docker container run -d -p 4302:80 nodejs-description:2019-07-19T18-22-11ZH74660
 docker image ls
 
 docker container ls
+
+
+sbt compile
+
+sbt package
+
+sbt assembly
+
+docker build -t scala-translation .
+
+docker run -p 4301:80 scala-translation
+
+docker build -t "scala-translation:$(date -u +'%Y-%m-%dT%H-%M-%SZ')H$(git log -1 --pretty=%h)" .
+
+docker run -d -p 4301:80 scala-translation:2019-07-21T00-03-27ZH5b3420c

@@ -18,9 +18,13 @@ object QuickstartServer extends App with TranslationRoutes {
   val translationRegistryActor: ActorRef = system.actorOf(TranslationRegistryActor.props, "translationRegistryActor")
   lazy val routes: Route = userRoutes
 
+  val host = scala.util.Properties.envOrElse("HOST", "localhost")
   val port = scala.util.Properties.envOrElse("PORT", "4301").toInt
 
-  val serverBinding: Future[Http.ServerBinding] = Http().bindAndHandle(routes, "localhost", port)
+  //    val serverBinding: Future[Http.ServerBinding] = Http().bindAndHandle(routes, "localhost", port)
+  //  val serverBinding: Future[Http.ServerBinding] = Http().bindAndHandle(routes, "127.0.0.1", port)
+  val serverBinding: Future[Http.ServerBinding] = Http().bindAndHandle(routes, host, port)
+  //  val serverBinding: Future[Http.ServerBinding] = Http().bindAndHandle(routes, "localhost", 80)
 
   serverBinding.onComplete {
     case Success(bound) =>
