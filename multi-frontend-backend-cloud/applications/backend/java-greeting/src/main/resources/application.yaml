@@ -1,0 +1,27 @@
+server:
+  port: "${PORT:4300}"
+
+service:
+  translation:
+    name: TranslationService
+    url: "${TRANSLATION_SERVICE:localhost:4301}"
+  description:
+    name: DescriptionService
+    url: "${DESCRIPTION_SERVICE:localhost:4302}"
+  family:
+    name: FamilyService
+    url: "${FAMILY_SERVICE:localhost:4303}"
+
+logging:
+  level:
+    com.greeting: debug
+    com.greeting.UserClient: debug
+    org.springframework.web: warn
+
+feign:
+  client:
+    config:
+      default:
+        connectTimeout: 5000
+        readTimeout: 5000
+        loggerLevel: basic

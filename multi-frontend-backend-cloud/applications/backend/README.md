@@ -46,6 +46,9 @@ https://hub.docker.com/_/openjdk
 https://stackoverflow.com/questions/37760999/docker-akka-http-application-endpoint-not-reachable
 
 
+https://stackoverflow.com/questions/42751269/feign-logging-not-working
+
+
 #### Commands
 
 docker build -t nodejs-description .
