@@ -13,7 +13,7 @@ object TranslationRegistryActor {
 class TranslationRegistryActor extends Actor with ActorLogging {
   import TranslationRegistryActor._
 
-  val translations: Map[String, String] = Map[String, String](
+  private val translations: Map[String, String] = Map[String, String](
     "Ukrainian" -> "PRYVIT",
     "French" -> "BONJOUR",
     "Spanish" -> "HOLA",
@@ -34,9 +34,7 @@ class TranslationRegistryActor extends Actor with ActorLogging {
     "Swahili" -> "JAMBO / HABARI",
     "Mandarin" -> "NI HAU",
     "Cantonese (Yue)" -> "NAY HOH",
-    "Bahasa Indonesia" -> "HALO",
-    "French" -> "BONJOUR",
-    "French" -> "BONJOUR",
+    "Bahasa Indonesia" -> "HALO"
   )
 
   def receive: Receive = {

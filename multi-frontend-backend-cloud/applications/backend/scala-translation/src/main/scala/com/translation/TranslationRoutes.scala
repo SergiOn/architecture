@@ -30,23 +30,24 @@ trait TranslationRoutes extends SprayJsonSupport {
 
   lazy val userRoutes: Route =
     pathEndOrSingleSlash {
-      complete("Home page: Scala")
+      complete("Home page: Scala Translation")
     } ~
-      pathPrefix("translations") {
-        concat(
-          pathEnd {
-            get {
-              val translations: Future[Map[String, String]] = (translationRegistryActor ? GetTranslations).mapTo[Map[String, String]]
-              complete(translations)
+    pathPrefix("translations") {
+      concat(
+        pathEnd {
+          get {
+            val translations: Future[Map[String, String]] = (translationRegistryActor ? GetTranslations).mapTo[Map[String, String]]
+            complete(translations)
+          }
+        },
+        path(Segment) { language =>
+          get {
+            val maybeUser: Future[Option[String]] = (translationRegistryActor ? GetTranslation(language)).mapTo[Option[String]]
+            rejectEmptyResponse {
+              complete(maybeUser)
             }
-          },
-          path(Segment) { language =>
-            get {
-              val maybeUser: Future[Option[String]] = (translationRegistryActor ? GetTranslation(language)).mapTo[Option[String]]
-              rejectEmptyResponse {
-                complete(maybeUser)
-              }
-            }
-          })
-      }
+          }
+        }
+      )
+    }
 }
