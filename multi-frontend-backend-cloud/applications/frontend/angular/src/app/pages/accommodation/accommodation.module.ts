@@ -1,12 +1,13 @@
 import { NgModule } from '@angular/core';
 import { Route, RouterModule } from '@angular/router';
 import { MatButtonModule } from '@angular/material';
-import { AccommodationSsrComponent } from './accommodation-ssr.component';
+import { AccommodationComponent } from './accommodation.component';
+import { GreetingModule } from 'src/app/greeting/greeting.module';
 
 const routes: Route[] = [
   {
     path: '',
-    component: AccommodationSsrComponent,
+    component: AccommodationComponent,
   },
 ];
 
@@ -14,9 +15,10 @@ const routes: Route[] = [
   imports: [
     RouterModule.forChild(routes),
     MatButtonModule,
+    GreetingModule,
   ],
   declarations: [
-    AccommodationSsrComponent,
+    AccommodationComponent,
   ],
 })
-export class AccommodationSsrModule { }
+export class AccommodationModule { }

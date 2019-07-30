@@ -1,12 +1,13 @@
 import { NgModule } from '@angular/core';
 import { Route, RouterModule } from '@angular/router';
 import { MatButtonModule } from '@angular/material';
-import { ConfirmationComponent } from './confirmation.component';
+import { PaymentComponent } from './payment.component';
+import { GreetingModule } from 'src/app/greeting/greeting.module';
 
 const routes: Route[] = [
   {
     path: '',
-    component: ConfirmationComponent,
+    component: PaymentComponent,
   },
 ];
 
@@ -14,9 +15,10 @@ const routes: Route[] = [
   imports: [
     RouterModule.forChild(routes),
     MatButtonModule,
+    GreetingModule,
   ],
   declarations: [
-    ConfirmationComponent,
+    PaymentComponent,
   ],
 })
-export class ConfirmationModule { }
+export class PaymentModule { }
