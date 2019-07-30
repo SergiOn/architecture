@@ -1,7 +1,7 @@
 import angular from 'angular';
 import AngularAnimate from 'angular-animate';
 import AngularMaterial  from 'angular-material';
-import { ComponentsModule } from './components/components.module';
+import { ComponentsModule } from './pages/components.module';
 import { AppComponent } from './app.component';
 import { AppConfigModule } from './app.config.module';
 import 'angular-material/angular-material.css';
