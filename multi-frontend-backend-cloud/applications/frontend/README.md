@@ -35,6 +35,10 @@ https://nodejs.org/de/docs/guides/nodejs-docker-webapp/
 
 https://hub.docker.com/_/node/?tab=description&page=5
 
+https://angular.io/guide/build#proxying-to-a-backend-server
+
+https://webpack.js.org/configuration/dev-server/#devserverproxy
+
 
 #### Commands
 
