@@ -71,6 +71,12 @@ module.exports = {
         port: 4100,
         proxy: {
             // https://webpack.js.org/configuration/dev-server/#devserverproxy
+            '/api': {
+                target: 'http://localhost:4300',
+                pathRewrite: {
+                    '^/api' : ''
+                }
+            }
         }
     }
 };
