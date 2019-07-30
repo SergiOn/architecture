@@ -48,8 +48,17 @@ https://stackoverflow.com/questions/37760999/docker-akka-http-application-endpoi
 
 https://stackoverflow.com/questions/42751269/feign-logging-not-working
 
+https://stackoverflow.com/questions/18487406/how-do-i-tell-gradle-to-use-specific-jdk-version
+
 
 #### Commands
+
+sbt run
+
+gradle bootRun
+
+gradle bootRun -Dorg.gradle.java.home=/Library/Java/JavaVirtualMachines/jdk-12.0.1.jdk/Contents/Home/
+
 
 docker build -t nodejs-description .
 
