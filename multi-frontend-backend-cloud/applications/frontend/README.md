@@ -39,6 +39,10 @@ https://angular.io/guide/build#proxying-to-a-backend-server
 
 https://webpack.js.org/configuration/dev-server/#devserverproxy
 
+https://material.angularjs.org/latest/demo/progressCircular
+
+https://material.angularjs.org/latest/demo/list
+
 
 #### Commands
 
