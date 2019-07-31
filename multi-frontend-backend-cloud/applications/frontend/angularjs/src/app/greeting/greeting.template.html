@@ -1,0 +1,16 @@
+<div class="greeting">
+    <h4>Loading greeting</h4>
+    <md-button class="md-primary load-button" ng-click="$ctrl.loadData()">Load Data</md-button>
+    <md-progress-circular class="md-primary spinner" ng-if="$ctrl.loading" md-diameter="{{ $ctrl.spinnerDiameter }}"></md-progress-circular>
+</div>
+
+<md-list ng-if="$ctrl.greetings && !$ctrl.loading">
+    <div ng-repeat="greeting in $ctrl.greetings">
+        <h3>Country: {{ greeting.country }}</h3>
+        <h4>Translation: {{ greeting.translation }}</h4>
+        <p class="paragraph">Description: {{ greeting.description }}</p>
+        <h4>Family name: {{ greeting.family.name }}</h4>
+        <p class="paragraph">Family description: {{ greeting.family.description }}</p>
+        <md-divider></md-divider>
+    </div>
+</md-list>
