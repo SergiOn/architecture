@@ -7,7 +7,7 @@ ENV PORT 80
 
 WORKDIR /usr/src/app
 
-COPY ./target/scala-2.13/*.jar ./scala-translation.jar
+COPY ./target/scala-2.13/scala-translation-assembly*.jar ./scala-translation.jar
 
 EXPOSE $PORT
 
