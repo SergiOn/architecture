@@ -21,13 +21,15 @@ spec:
               serviceName: angular-service
               servicePort: 80
 
-          - path: /
+          - path: /((search)|(customize)|(pax))?$
             backend:
               serviceName: angularjs-service
               servicePort: 80
-          - path: /.+\.(css)|(js)$
+          - path: /.+\..{2,6}\.css$
             backend:
               serviceName: angularjs-service
               servicePort: 80
-
-
+          - path: /.+\.bundle\..{2,6}\.js$
+            backend:
+              serviceName: angularjs-service
+              servicePort: 80
