@@ -120,3 +120,51 @@ kubectl apply -f java-greeting-service.yaml --force
 kubectl apply -f ingress.yaml
 
 kubectl get ingress
+
+
+#### New version
+
+kubectl rollout history deployment <name>
+
+kubectl rollout undo deployment <name> --to-revision=<number>
+
+
+kubectl rollout history deployment angularjs-deployment
+
+kubectl rollout history deployment angular-deployment
+
+
+cd /Users/serhii/Documents/Web/Training/Architecture/architecture/multi-frontend-backend-cloud/applications/frontend/angularjs
+
+docker build -t "angularjs:$(date -u +'%Y-%m-%d')" .
+
+docker tag angularjs:2019-08-11 serhiion/angularjs:2019-08-11
+
+docker push serhiion/angularjs:2019-08-11
+
+
+cd /Users/serhii/Documents/Web/Training/Architecture/architecture/multi-frontend-backend-cloud/applications/frontend/angular
+
+docker build -t "angular:$(date -u +'%Y-%m-%d')" .
+
+docker tag angular:2019-08-11 serhiion/angular:2019-08-11
+
+docker push serhiion/angular:2019-08-11
+
+
+cd /Users/serhii/Documents/Web/Training/Architecture/architecture/multi-frontend-backend-cloud/kubernetes/frontend
+
+kubectl apply -f angularjs-deployment-new.yaml --record
+
+kubectl apply -f angular-deployment-new.yaml --record
+
+
+kubectl get pod
+
+kubectl get deployment
+
+kubectl get services
+
+kubectl rollout history deployment angularjs-deployment
+
+kubectl rollout history deployment angular-deployment
