@@ -8,7 +8,7 @@ spec:
   rules:
     - http:
         paths:
-          - path: /(accommodation)|(accommodation\-ssr)|(payment)|(confirmation)$
+          - path: /(accommodation)|(accommodation\-ssr)|(payment)|(confirmation)(\/|$)
             backend:
               serviceName: angular-service
               servicePort: 80
@@ -21,7 +21,7 @@ spec:
               serviceName: angular-service
               servicePort: 80
 
-          - path: /((search)|(customize)|(pax))?$
+          - path: /((search)|(customize)|(pax))?(\/|$)
             backend:
               serviceName: angularjs-service
               servicePort: 80
