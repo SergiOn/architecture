@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: angularjs-service
+spec:
+  type: ClusterIP
+#  type: NodePort
+  selector:
+    app: angularjs-app
+  ports:
+    - port: 80
+      targetPort: 80
