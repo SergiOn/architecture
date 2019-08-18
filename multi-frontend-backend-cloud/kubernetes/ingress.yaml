@@ -8,19 +8,6 @@ spec:
   rules:
     - http:
         paths:
-          - path: /(accommodation)|(accommodation\-ssr)|(payment)|(confirmation)(\/|$)
-            backend:
-              serviceName: angular-service
-              servicePort: 80
-          - path: /styles\..+\.css$
-            backend:
-              serviceName: angular-service
-              servicePort: 80
-          - path: /.+\-es2015\..+\.js$
-            backend:
-              serviceName: angular-service
-              servicePort: 80
-
           - path: /((search)|(customize)|(pax))?(\/|$)
             backend:
               serviceName: angularjs-service
@@ -32,4 +19,18 @@ spec:
           - path: /.+\.bundle\..{2,6}\.js$
             backend:
               serviceName: angularjs-service
+              servicePort: 80
+
+#          - path: /(accommodation)|(accommodation\-ssr)|(payment)|(confirmation)(\/|$)
+          - path: /
+            backend:
+              serviceName: angular-service
+              servicePort: 80
+          - path: /styles\..+\.css$
+            backend:
+              serviceName: angular-service
+              servicePort: 80
+          - path: /.+\-es2015\..+\.js$
+            backend:
+              serviceName: angular-service
               servicePort: 80

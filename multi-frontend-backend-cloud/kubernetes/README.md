@@ -39,6 +39,12 @@ https://github.com/kubernetes/ingress-nginx/blob/master/docs/examples/rewrite/RE
 
 https://kubernetes.github.io/ingress-nginx/user-guide/ingress-path-matching/
 
+https://github.com/nginxinc/kubernetes-ingress/tree/master/examples/rewrites
+
+https://devopscube.com/setup-ingress-kubernetes-nginx-controller/
+
+https://medium.com/@cashisclay/kubernetes-ingress-82aa960f658e
+
 
 ## Issues
 
