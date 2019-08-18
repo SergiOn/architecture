@@ -1,0 +1,38 @@
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: ingress-ui
+  annotations:
+    nginx.ingress.kubernetes.io/use-regex: "true"
+spec:
+  tls:
+    - secretName: testsecret-tls
+  rules:
+    - http:
+        paths:
+          - path: /((search)|(customize)|(pax))?(\/|$)
+            backend:
+              serviceName: angularjs-service
+              servicePort: 80
+          - path: /.+\..{2,6}\.css$
+            backend:
+              serviceName: angularjs-service
+              servicePort: 80
+          - path: /.+\.bundle\..{2,6}\.js$
+            backend:
+              serviceName: angularjs-service
+              servicePort: 80
+
+#          - path: /(accommodation)|(accommodation\-ssr)|(payment)|(confirmation)(\/|$)
+          - path: /
+            backend:
+              serviceName: angular-service
+              servicePort: 80
+          - path: /styles\..+\.css$
+            backend:
+              serviceName: angular-service
+              servicePort: 80
+          - path: /.+\-es2015\..+\.js$
+            backend:
+              serviceName: angular-service
+              servicePort: 80
