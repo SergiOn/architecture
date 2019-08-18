@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 const routes: Routes = [
   {
@@ -19,8 +20,12 @@ const routes: Routes = [
     loadChildren: 'src/app/pages/confirmation/confirmation.module#ConfirmationModule',
   },
   {
+    path: 'not-found',
+    component: NotFoundComponent,
+  },
+  {
     path: '**',
-    redirectTo: 'accommodation',
+    redirectTo: 'not-found',
     pathMatch: 'full',
   },
 ];
