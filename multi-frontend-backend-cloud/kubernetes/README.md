@@ -45,6 +45,10 @@ https://devopscube.com/setup-ingress-kubernetes-nginx-controller/
 
 https://medium.com/@cashisclay/kubernetes-ingress-82aa960f658e
 
+https://stackoverflow.com/questions/26911213/find-files-and-execute-command/26911273
+
+https://stackoverflow.com/questions/1341467/find-filenames-not-ending-in-specific-extensions-on-unix
+
 
 ## Issues
 

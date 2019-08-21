@@ -1,0 +1,31 @@
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: angular-canary-ingress
+  labels:
+    app: angular-canary-app
+  annotations:
+    kubernetes.io/ingress.class: "nginx"
+    nginx.ingress.kubernetes.io/canary: "true"
+    nginx.ingress.kubernetes.io/canary-weight: "98"
+    nginx.ingress.kubernetes.io/use-regex: "true"
+    nginx.ingress.kubernetes.io/upstream-hash-by: "$arg_predictorid_canary"
+    nginx.ingress.kubernetes.io/upstream-hash-by-subset: "true"
+#    nginx.ingress.kubernetes.io/upstream-hash-by-subset-size: "3"
+spec:
+  rules:
+    - host: my-app.com
+      http:
+        paths:
+          - path: /
+            backend:
+              serviceName: angular-canary-service
+              servicePort: 80
+          - path: /styles\..+\.css$
+            backend:
+              serviceName: angular-canary-service
+              servicePort: 80
+          - path: /.+\-es2015\..+\.js$
+            backend:
+              serviceName: angular-canary-service
+              servicePort: 80
