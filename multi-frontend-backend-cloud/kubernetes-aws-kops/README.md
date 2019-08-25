@@ -86,7 +86,7 @@ export KOPS_STATE_STORE=s3://architectso-k8s-bucket
 ssh-keygen
 
 
-kops create cluster architectso-k8s.k8s.local --zones us-east-1a --yes
+kops create cluster architectso-k8s.k8s.local --zones us-east-1a, us-east-1b, us-east-1c, us-east-1d --yes
 
 
 kops validate cluster
