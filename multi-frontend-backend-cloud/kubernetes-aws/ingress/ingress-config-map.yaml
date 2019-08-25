@@ -8,6 +8,9 @@ metadata:
     app.kubernetes.io/part-of: ingress-nginx
 data:
   use-proxy-protocol: "false"
+#  use-proxy-protocol: "true"
   use-forwarded-headers: "true"
   # restrict this to the IP addresses of ELB
   proxy-real-ip-cidr: "0.0.0.0/0"
+#  proxy-real-ip-cidr: "alb-1234290462.us-east-1.elb.amazonaws.com"
+#  proxy-real-ip-cidr: "10.0.0.0/8"

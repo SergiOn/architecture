@@ -16,64 +16,37 @@ https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/install-ku
 https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/create-cluster-kubeadm/
 
 
+https://stackoverflow.com/questions/55342907/kuberntes-ingress-aws-deployment-loadbalancer-pending
+
+https://kubernetes.io/docs/reference/setup-tools/kubeadm/kubeadm-init/
+
+https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/create-cluster-kubeadm/
+
+https://kubernetes.io/docs/concepts/cluster-administration/cloud-providers/
+
+https://blog.scottlowe.org/2019/02/18/kubernetes-kubeadm-and-the-aws-cloud-provider/
+
+https://medium.com/jane-ai-engineering-blog/kubernetes-on-aws-6281e3a830fe
+
+https://stackoverflow.com/questions/50668070/kube-controller-manager-doesnt-start-when-using-cloud-provider-aws-with-kubea
+
+
+https://itnext.io/kubernetes-part-2-a-cluster-set-up-on-aws-with-aws-cloud-provider-and-aws-loadbalancer-f02c3509f2c2
+
+https://github.com/heptio/aws-quickstart/blob/master/scripts/setup-k8s-master.sh.in
+
+
 ## Commands
+
+sudo ssh -i /Users/serhii/Documents/Web/Training/Architecture/architecture/multi-frontend-backend-cloud/ec2.pem centos@
 
 sudo su
 
 yum -y update
 
-cat <<EOF > /etc/yum.repos.d/kubernetes.repo
-[kubernetes]
-name=Kubernetes
-baseurl=https://packages.cloud.google.com/yum/repos/kubernetes-el7-x86_64
-enabled=1
-gpgcheck=1
-repo_gpgcheck=1
-gpgkey=https://packages.cloud.google.com/yum/doc/yum-key.gpg https://packages.cloud.google.com/yum/doc/rpm-package-key.gpg
-EOF
-
-setenforce 0
-
-sed -i 's/^SELINUX=enforcing$/SELINUX=permissive/' /etc/selinux/config
-
-yum install -y docker kubelet kubeadm kubectl --disableexcludes=kubernetes
-
-systemctl enable --now kubelet
-
-systemctl enable docker && systemctl start docker
-
-systemctl enable kubelet && systemctl start kubelet
-
-cat <<EOF >  /etc/sysctl.d/k8s.conf
-net.bridge.bridge-nf-call-ip6tables = 1
-net.bridge.bridge-nf-call-iptables = 1
-EOF
-
-sysctl --system
-
-swapoff -a &&  sed -i '/ swap / s/^/#/' /etc/fstab
-
 
 kubeadm init
 
-
-mkdir -p $HOME/.kube
-
-sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
-
-sudo chown $(id -u):$(id -g) $HOME/.kube/config
-
-
-kubeadm join 172.31.47.170:6443 --token 1301ud.z5h8trlnscwguh6c \
-    --discovery-token-ca-cert-hash sha256:7be212c43a07e77ad8e2392b291af6bb63652e15878e28d132e4eaee1ada967d
-
-
-kubectl get nodes
-
-kubectl apply -f "https://cloud.weave.works/k8s/net?k8s-version=$(kubectl version | base64 | tr -d '\n')"
-
-
-kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/master/deploy/static/mandatory.yaml
 
 sudo scp -i /Users/serhii/Downloads/ec2.pem \
   -rp /Users/serhii/Documents/Web/Training/Architecture/architecture/multi-frontend-backend-cloud/kubernetes-aws \
@@ -83,4 +56,11 @@ sudo scp -i /Users/serhii/Downloads/ec2.pem \
 find . -name "*.yaml" -exec echo {} \;
 
 find . -name "*.yaml" -exec kubectl apply -f {} \;
+
+
+cat <<EOF | kubectl apply -f -
+
+cat <<EOF | kubectl delete -f -
+
+EOF
 
