@@ -33,8 +33,14 @@ https://docs.aws.amazon.com/AmazonS3/latest/dev/delete-or-empty-bucket.html#targ
 
 https://github.com/kubernetes/kops/blob/master/docs/aws.md
 
+https://askubuntu.com/questions/9800/remote-host-identification-has-changed-warning-when-connecting-over-ssh
+
+https://www.youtube.com/watch?v=gEzCKNA-nCg
+
 
 ## Commands
+
+ssh serhii@192.168.1.108
 
 curl -LO https://github.com/kubernetes/kops/releases/download/$(curl -s https://api.github.com/repos/kubernetes/kops/releases/latest | grep tag_name | cut -d '"' -f 4)/kops-linux-amd64
 
@@ -85,10 +91,20 @@ kops create cluster architectso-k8s.k8s.local --zones us-east-1a --yes
 
 kops validate cluster
 
+kubectl get nodes
+
 
 kops delete cluster architectso-k8s.k8s.local --yes
 
 aws s3 rb s3://architectso-k8s-bucket --force
+
+
+cat <<EOF | kubectl apply -f -
+
+cat <<EOF | kubectl delete -f -
+
+EOF
+
 
 
 sudo scp -i /Users/serhii/.ssh/id_rsa \
