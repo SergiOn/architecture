@@ -22,3 +22,23 @@ https://github.com/weaveworks/flagger
 
 ## Commands
 
+minikube start --cpus=4 --memory='14gb'
+
+cd /Users/serhii/Documents/Web/Training/Architecture/architecture/multi-frontend-backend-cloud/kubernetes-istio/install/kubernetes/helm/istio-init/files
+
+for i in ./crd*yaml; do kubectl apply -f $i; done
+
+cd /Users/serhii/Documents/Web/Training/Architecture/architecture/multi-frontend-backend-cloud/kubernetes-istio/install/kubernetes
+
+kubectl apply -f istio-demo.yaml
+
+kubectl get svc -n istio-system
+
+kubectl get pods -n istio-system
+
+kubectl get ns default -o yaml
+
+kubectl label namespace default istio-injection=enabled
+
+kubectl get ns default -o yaml
+
