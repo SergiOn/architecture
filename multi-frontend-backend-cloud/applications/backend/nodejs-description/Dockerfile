@@ -5,8 +5,10 @@ ENV NODE_PATH ./
 
 WORKDIR /usr/src/app
 
-COPY ./node_modules ./node_modules
 COPY ./dist ./
+COPY ./package.json ./package.json
+
+RUN npm install --production
 
 EXPOSE $PORT
 
