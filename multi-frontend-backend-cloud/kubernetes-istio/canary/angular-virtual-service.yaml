@@ -1,0 +1,38 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: angular-virtual-service
+spec:
+  hosts:
+    - "*"
+  gateways:
+    - gateway
+  http:
+    - match:
+      - headers:
+          cookie:
+            prefix: "angular-stable="
+      route:
+      - destination:
+          host: angular-service
+          subset: angular-stable
+    - match:
+      - headers:
+          cookie:
+            prefix: "angular-canary="
+      route:
+        - destination:
+            host: angular-service
+            subset: angular-canary
+    - match:
+      - uri:
+          prefix: /
+      route:
+        - destination:
+            host: angular-service
+            subset: angular-stable
+          weight: 50
+        - destination:
+            host: angular-service
+            subset: angular-canary
+          weight: 50

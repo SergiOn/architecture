@@ -1,0 +1,25 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: DestinationRule
+metadata:
+  name: angular-destination-rule
+spec:
+  host: angular-service
+  subsets:
+    - name: angular-stable
+      labels:
+        release: stable
+      trafficPolicy:
+        loadBalancer:
+          consistentHash:
+            httpCookie:
+              name: angular-stable
+              ttl: 0s
+    - name: angular-canary
+      labels:
+        release: canary
+      trafficPolicy:
+        loadBalancer:
+          consistentHash:
+            httpCookie:
+              name: angular-canary
+              ttl: 0s

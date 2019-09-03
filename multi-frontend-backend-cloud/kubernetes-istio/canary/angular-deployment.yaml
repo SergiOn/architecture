@@ -1,0 +1,44 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: angular-deployment
+  labels:
+    app: angular-app
+    release: stable
+spec:
+  replicas: 2
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 1
+      maxSurge: 1
+  selector:
+    matchLabels:
+      app: angular-app
+      release: stable
+  template:
+    metadata:
+      name: angular
+      labels:
+        app: angular-app
+        release: stable
+    spec:
+      containers:
+        - name: angular-container
+          image: serhiion/angular:2019-08-05
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 80
+#          readinessProbe:
+#            httpGet:
+#              path: /
+#              port: 80
+#            initialDelaySeconds: 1
+#            timeoutSeconds: 1
+#          livenessProbe:
+#            httpGet:
+#              path: /
+#              port: 80
+#            initialDelaySeconds: 1
+#            timeoutSeconds: 1
+      restartPolicy: Always

@@ -42,3 +42,16 @@ kubectl label namespace default istio-injection=enabled
 
 kubectl get ns default -o yaml
 
+kubectl get po -A
+
+kubectl get svc -A
+
+
+cd /Users/serhii/Documents/Web/Training/Architecture/architecture/multi-frontend-backend-cloud/kubernetes-istio/canary
+
+for i in ./*yaml; do kubectl apply -f $i; done
+
+for i in ./*yaml; do kubectl delete -f $i; done
+
+minikube ip
+
