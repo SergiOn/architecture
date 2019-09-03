@@ -4,22 +4,28 @@ metadata:
   name: angular-destination-rule
 spec:
   host: angular-service
-  subsets:
-    - name: angular-stable
-      labels:
-        release: stable
-      trafficPolicy:
-        loadBalancer:
-          consistentHash:
-            httpCookie:
-              name: angular-stable
-              ttl: 0s
-    - name: angular-canary
-      labels:
-        release: canary
-      trafficPolicy:
-        loadBalancer:
-          consistentHash:
-            httpCookie:
-              name: angular-canary
-              ttl: 0s
+  trafficPolicy:
+    loadBalancer:
+      consistentHash:
+        httpCookie:
+          name: angular
+          ttl: 0s
+#  subsets:
+#    - name: angular-stable
+#      labels:
+#        release: stable
+#      trafficPolicy:
+#        loadBalancer:
+#          consistentHash:
+#            httpCookie:
+#              name: angular-stable
+#              ttl: 0s
+#    - name: angular-canary
+#      labels:
+#        release: canary
+#      trafficPolicy:
+#        loadBalancer:
+#          consistentHash:
+#            httpCookie:
+#              name: angular-canary
+#              ttl: 0s
