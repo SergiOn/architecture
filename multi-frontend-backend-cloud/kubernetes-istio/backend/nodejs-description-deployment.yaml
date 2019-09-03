@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nodejs-description-deployment
+  labels:
+    app: nodejs-description-app
+spec:
+  replicas: 4
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 2
+      maxSurge: 1
+  template:
+    metadata:
+      name: nodejs-description
+      labels:
+        app: nodejs-description-app
+    spec:
+      containers:
+        - name: nodejs-description-container
+          image: serhiion/nodejs-description:2019-08-05
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 80
+      restartPolicy: Always
+  selector:
+    matchLabels:
+      app: nodejs-description-app
