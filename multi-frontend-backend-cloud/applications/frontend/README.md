@@ -49,6 +49,10 @@ https://github.com/jantimon/html-webpack-plugin#writing-your-own-templates
 
 https://github.com/webpack/webpack/issues/6460
 
+https://stackoverflow.com/questions/54002520/is-this-possible-to-change-script-path-in-index-html-file-after-build-completed
+
+https://stackoverflow.com/questions/45328256/modify-the-src-location-for-javascript-script-tags-during-ng-build
+
 
 #### Commands
 
