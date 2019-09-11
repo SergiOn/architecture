@@ -1,0 +1,13 @@
+.greeting {
+  display: flex;
+  align-items: center;
+  margin-top: 28px;
+
+  .load-button {
+    margin-left: 12px;
+  }
+
+  .spinner {
+    margin-left: 28px;
+  }
+}

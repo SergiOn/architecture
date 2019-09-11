@@ -1,0 +1,34 @@
+<div class="pax">
+
+    <h1 class="title">(UI-1) Found in {{ $ctrl.name }}</h1>
+
+    <section class="navigation">
+        <div class="link-container">
+            <md-button class="md-primary link" ui-sref-active="active" ui-sref="home" ng-click="$ctrl.goHome()">Go to Home</md-button>
+        </div>
+        <div class="link-container">
+            <md-button class="md-primary link" ui-sref-active="active" ui-sref="search" ng-click="$ctrl.goSearch()">Go to Search</md-button>
+        </div>
+        <div class="link-container">
+            <md-button class="md-warn link" ng-click="$ctrl.goAccommodation()">Go to Accommodation</md-button>
+        </div>
+        <div class="link-container">
+            <md-button class="md-warn link" ng-click="$ctrl.goAccommodationSSR()">Go to Accommodation (SSR)</md-button>
+        </div>
+        <div class="link-container">
+            <md-button class="md-primary link" ui-sref-active="active" ui-sref="customize" ng-click="$ctrl.goCustomize()">Go to Customize</md-button>
+        </div>
+        <div class="link-container">
+            <md-button class="md-primary link" ui-sref-active="active" ui-sref="pax" ng-click="$ctrl.goPax()">Go to Pax</md-button>
+        </div>
+        <div class="link-container">
+            <md-button class="md-warn link" ng-click="$ctrl.goPayment()">Go to Payment</md-button>
+        </div>
+        <div class="link-container">
+            <md-button class="md-warn link" ng-click="$ctrl.goConfirmation()">Go to Confirmation</md-button>
+
+        </div>
+    </section>
+
+    <greeting></greeting>
+</div>
