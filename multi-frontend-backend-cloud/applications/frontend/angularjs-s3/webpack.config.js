@@ -4,10 +4,25 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
+const LINK_PREFIX = 'https/';
+
 const Mode = {
     Development: 'development',
     Production: 'production',
 };
+
+const HtmlWebpackPluginDevelopment = new HtmlWebpackPlugin({
+    filename: 'index.html',
+    template: path.resolve(__dirname, 'src', 'index.html'),
+});
+
+const HtmlWebpackPluginProduction = new HtmlWebpackPlugin({
+    linkPrefix: LINK_PREFIX,
+    filename: 'index.html',
+    template: path.resolve(__dirname, 'src', 'index.ejs'),
+    inject: false,
+});
+
 
 module.exports = (env, argv) => {
 const mode = argv.mode ? argv.mode : Mode.Development;
@@ -47,10 +62,8 @@ return {
         modules: [path.resolve(__dirname, 'src'), 'node_modules'],
     },
     plugins: [
-        new HtmlWebpackPlugin({
-            filename: 'index.html',
-            template: path.resolve(__dirname, 'src', 'index.html')
-        }),
+        // HtmlWebpackPlugin
+        mode === Mode.Production ? HtmlWebpackPluginProduction : HtmlWebpackPluginDevelopment,
         new MiniCssExtractPlugin({
             filename: '[name].[contenthash:4].css',
             chunkFilename: '[id].[contenthash:4].css'
