@@ -43,6 +43,12 @@ https://material.angularjs.org/latest/demo/progressCircular
 
 https://material.angularjs.org/latest/demo/list
 
+https://stackoverflow.com/questions/53351409/modify-htmlwebpackplugins-generated-script-urls
+
+https://github.com/jantimon/html-webpack-plugin#writing-your-own-templates
+
+https://github.com/webpack/webpack/issues/6460
+
 
 #### Commands
 
