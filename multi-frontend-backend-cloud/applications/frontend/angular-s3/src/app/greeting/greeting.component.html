@@ -1,0 +1,24 @@
+<mat-list *ngIf="false">
+  <mat-list-item>
+    <div class="load-block">
+      <h4 mat-line>Loading greeting</h4>
+      <button class="button" mat-raised-button color="primary" (click)="getData()">Get Data</button>
+      <mat-spinner class="spinner" *ngIf="(loading$ | async)" [diameter]="spinnerDiameter"></mat-spinner>
+    </div>
+  </mat-list-item>
+</mat-list>
+
+<mat-list *ngIf="false && (greetings$ | async) && !(loading$ | async)">
+  <div *ngFor="let greeting of (greetings$ | async)">
+    <h2 mat-subheader>Country: {{ greeting.country }}</h2>
+    <mat-list-item>
+      <h4 mat-line>Translation: {{ greeting.translation }}</h4>
+      <p class="paragraph" mat-line>Description: {{ greeting.description }}</p>
+    </mat-list-item>
+    <mat-list-item>
+      <h4 mat-line>Family name: {{ greeting.family.name }}</h4>
+      <p class="paragraph" mat-line>Family description: {{ greeting.family.description }}</p>
+    </mat-list-item>
+    <mat-divider></mat-divider>
+  </div>
+</mat-list>
