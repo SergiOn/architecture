@@ -10,7 +10,7 @@
     <link rel="icon" type="image/x-icon" href="">
 
     <% htmlWebpackPlugin.files.css.forEach((file) => { %>
-        <script src="<%= htmlWebpackPlugin.options.linkPrefix %><%= file %>"></script>
+    <link href="<%= htmlWebpackPlugin.options.linkPrefix %><%= file %>" rel="stylesheet">
     <% }) %>
 </head>
 <body>
