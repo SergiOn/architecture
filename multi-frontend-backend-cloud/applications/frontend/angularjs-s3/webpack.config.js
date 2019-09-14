@@ -4,36 +4,21 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
-const LINK_PREFIX = 'https/';
+const LINK_PREFIX = 'https://domain';
 
 const Mode = {
     Development: 'development',
     Production: 'production',
 };
 
-const HtmlWebpackPluginDevelopment = new HtmlWebpackPlugin({
-    filename: 'index.html',
-    template: path.resolve(__dirname, 'src', 'index.html'),
-});
-
-const HtmlWebpackPluginProduction = new HtmlWebpackPlugin({
-    linkPrefix: LINK_PREFIX,
-    filename: 'index.html',
-    template: path.resolve(__dirname, 'src', 'index.ejs'),
-    inject: false,
-});
-
-
-module.exports = (env, argv) => {
-const mode = argv.mode ? argv.mode : Mode.Development;
-
-return {
+module.exports = (env, argv) => ({
     entry: {
         main: path.resolve(__dirname, 'src', 'main.ts')
     },
     output: {
         filename: '[name].bundle.[hash:4].js',
-        path: path.resolve(__dirname, 'dist')
+        path: path.resolve(__dirname, 'dist'),
+        publicPath: argv.mode === Mode.Production ? LINK_PREFIX : '/',
     },
     devtool: 'inline-source-map',
     module: {
@@ -62,8 +47,10 @@ return {
         modules: [path.resolve(__dirname, 'src'), 'node_modules'],
     },
     plugins: [
-        // HtmlWebpackPlugin
-        mode === Mode.Production ? HtmlWebpackPluginProduction : HtmlWebpackPluginDevelopment,
+        new HtmlWebpackPlugin({
+            filename: 'index.html',
+            template: path.resolve(__dirname, 'src', 'index.html'),
+        }),
         new MiniCssExtractPlugin({
             filename: '[name].[contenthash:4].css',
             chunkFilename: '[id].[contenthash:4].css'
@@ -101,4 +88,4 @@ return {
             }
         }
     }
-}};
+});
