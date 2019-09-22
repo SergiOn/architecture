@@ -50,3 +50,22 @@ v1: angular-s3:2019-09-22T09-33-08Z
 
 v2: angular-s3:2019-09-22T09-50-43Z
 
+
+#### Docker Hub
+
+docker tag angularjs-s3:2019-09-22T08-46-39Z serhiion/angularjs-s3:2019-09-22T08-46-39Z
+
+docker tag angularjs-s3:2019-09-22T08-54-48Z serhiion/angularjs-s3:2019-09-22T08-54-48Z
+
+docker tag angular-s3:2019-09-22T09-33-08Z serhiion/angular-s3:2019-09-22T09-33-08Z
+
+docker tag angular-s3:2019-09-22T09-50-43Z serhiion/angular-s3:2019-09-22T09-50-43Z
+
+docker push serhiion/angularjs-s3:2019-09-22T08-46-39Z
+
+docker push serhiion/angularjs-s3:2019-09-22T08-54-48Z
+
+docker push serhiion/angular-s3:2019-09-22T09-33-08Z
+
+docker push serhiion/angular-s3:2019-09-22T09-50-43Z
+
