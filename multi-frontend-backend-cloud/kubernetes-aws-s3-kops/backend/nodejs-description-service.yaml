@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: nodejs-description-service
+spec:
+  type: ClusterIP
+  selector:
+    app: nodejs-description-app
+  ports:
+    - port: 80
+      targetPort: 80

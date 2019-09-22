@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: angularjs-deployment
+  labels:
+    app: angularjs-app
+spec:
+  replicas: 2
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 1
+      maxSurge: 1
+  template:
+    metadata:
+      name: angularjs
+      labels:
+        app: angularjs-app
+    spec:
+      containers:
+        - name: angularjs-container
+          image: serhiion/angularjs-s3:2019-09-22T08-46-39Z
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 80
+      restartPolicy: Always
+  selector:
+    matchLabels:
+      app: angularjs-app

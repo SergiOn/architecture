@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: scala-translation-deployment
+  labels:
+    app: scala-translation-app
+spec:
+  replicas: 2
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 2
+      maxSurge: 1
+  template:
+    metadata:
+      name: scala-translation
+      labels:
+        app: scala-translation-app
+    spec:
+      containers:
+        - name: scala-translation-container
+          image: serhiion/scala-translation:2019-08-05
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 80
+      restartPolicy: Always
+  selector:
+    matchLabels:
+      app: scala-translation-app

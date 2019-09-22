@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: java-family-deployment
+  labels:
+    app: java-family-app
+spec:
+  replicas: 2
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 2
+      maxSurge: 1
+  template:
+    metadata:
+      name: java-family
+      labels:
+        app: java-family-app
+    spec:
+      containers:
+        - name: java-family-container
+          image: serhiion/java-family:2019-08-05
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 80
+      restartPolicy: Always
+  selector:
+    matchLabels:
+      app: java-family-app
