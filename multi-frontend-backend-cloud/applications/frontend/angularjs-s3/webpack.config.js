@@ -4,7 +4,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
-const LINK_PREFIX = 'https://domain';
+const LINK_PREFIX = 'https://frontend-cloud-s3.s3.amazonaws.com/angularjs/';
 
 const Mode = {
     Development: 'development',

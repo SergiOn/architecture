@@ -122,7 +122,7 @@ sudo scp -i /Users/serhii/.ssh/id_rsa \
 HA
 
 kops create cluster architectso-k8s.k8s.local \
-      --zones us-east-1a, us-east-1b, us-east-1c \
+      --zones us-east-1a, us-east-1b, us-east-1c, us-east-1d, us-east-1e, us-east-1f \
       --node-count=3 \
       --master-zones us-east-1a, us-east-1b, us-east-1c \
       --yes
