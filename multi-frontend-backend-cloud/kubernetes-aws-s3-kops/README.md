@@ -38,4 +38,15 @@ v1: angularjs-s3:2019-09-22T08-46-39Z
 v2: angularjs-s3:2019-09-22T08-54-48Z
 
 
+#### Angular
+
+docker build -t "angular-s3:$(date -u +'%Y-%m-%dT%H-%M-%SZ')" .
+
+docker container run -d -p 4200:80 angular-s3:2019-09-22T09-33-08Z
+
+docker container run -d -p 4200:80 angular-s3:2019-09-22T09-50-43Z
+
+v1: angular-s3:2019-09-22T09-33-08Z
+
+v2: angular-s3:2019-09-22T09-50-43Z
 

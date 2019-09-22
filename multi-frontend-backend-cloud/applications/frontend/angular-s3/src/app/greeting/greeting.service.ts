@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Greetings } from './greeting.interfaces';
-import { EMPTY, merge, Observable, Subject } from 'rxjs';
+import { merge, Observable, Subject } from 'rxjs';
 import { catchError, delay, mapTo, shareReplay, startWith, switchMap } from 'rxjs/operators';
 
 @Injectable()
@@ -13,7 +13,7 @@ export class GreetingService {
 
   public greetings$: Observable<Greetings> = this.doRequestSink$.pipe(
     switchMap(() => this.getData().pipe(
-      catchError(() => EMPTY)),
+      catchError(() => [])),
     ),
     delay(3000),
     shareReplay(1),

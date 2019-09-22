@@ -4,7 +4,10 @@ ENV PORT 80
 
 WORKDIR /usr/src/app
 
-COPY ./dist ./dist
+COPY ./dist/browser/index.html ./dist/browser/
+COPY ./dist/browser/favicon.ico ./dist/browser/
+COPY ./dist/server/* ./dist/server/
+COPY ./dist/server.js ./dist/
 
 EXPOSE $PORT
 

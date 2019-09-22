@@ -18,7 +18,7 @@
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
             "outputPath": "dist/browser",
-            "deployUrl": "https://s3/",
+            "deployUrl": "https://frontend-cloud-s3.s3.amazonaws.com/angular/",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -64,6 +64,7 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
             "browserTarget": "angular:build",
+            "deployUrl": "/",
             "open": true,
             "proxyConfig": "proxy/dev.conf.json"
           },
