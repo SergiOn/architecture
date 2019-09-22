@@ -38,3 +38,38 @@ docker hub image: serhiion/angular-s3:2019-09-22T13-58-23Z
 
 ## Commands
 
+### Kops
+
+ssh serhii@192.168.1.108
+password: 1
+
+aws s3api create-bucket --bucket architectso-k8s-bucket --region us-east-1
+
+```json
+{
+    "Location": "/architectso-k8s-bucket"
+}
+```
+
+export KOPS_STATE_STORE=s3://architectso-k8s-bucket
+
+HA cluster
+
+kops create cluster architectso-k8s.k8s.local \
+      --zones us-east-1a,us-east-1b,us-east-1c,us-east-1d,us-east-1e,us-east-1f \
+      --node-count 3 \
+      --master-zones us-east-1a,us-east-1b,us-east-1c \
+      --yes
+
+kops validate cluster
+
+kubectl get nodes
+
+
+kops delete cluster architectso-k8s.k8s.local --yes
+
+aws s3 rb s3://architectso-k8s-bucket --force
+
+
+
+
