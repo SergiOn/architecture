@@ -97,16 +97,24 @@ kubectl apply -f https://raw.githubusercontent.com/SergiOn/architecture/master/m
 kubectl apply -f https://raw.githubusercontent.com/SergiOn/architecture/master/multi-frontend-backend-cloud/kubernetes-aws-s3-kops/frontend/angular-ingress.yaml
 
 
-#### Frontend Canary
+#### Frontend Canary with broken angular
+
+kubectl apply -f https://raw.githubusercontent.com/SergiOn/architecture/master/multi-frontend-backend-cloud/kubernetes-aws-s3-kops/canary/angularjs-canary-deployment.yaml
+
+kubectl apply -f https://raw.githubusercontent.com/SergiOn/architecture/master/multi-frontend-backend-cloud/kubernetes-aws-s3-kops/canary/angularjs-canary-service.yaml
+
+kubectl apply -f https://raw.githubusercontent.com/SergiOn/architecture/master/multi-frontend-backend-cloud/kubernetes-aws-s3-kops/canary/angularjs-canary-ingress.yaml
+
+kubectl apply -f https://raw.githubusercontent.com/SergiOn/architecture/master/multi-frontend-backend-cloud/kubernetes-aws-s3-kops/canary/angular-canary-deployment-broken.yaml
+
+kubectl apply -f https://raw.githubusercontent.com/SergiOn/architecture/master/multi-frontend-backend-cloud/kubernetes-aws-s3-kops/canary/angular-canary-service.yaml
+
+kubectl apply -f https://raw.githubusercontent.com/SergiOn/architecture/master/multi-frontend-backend-cloud/kubernetes-aws-s3-kops/canary/angular-canary-ingress.yaml
 
 kubectl apply -f 
 
 kubectl apply -f 
 
-kubectl apply -f 
 
-kubectl apply -f 
-
-kubectl apply -f 
-
+#### Frontend Canary without broken angular
 
