@@ -177,3 +177,15 @@ kubectl apply -f https://raw.githubusercontent.com/SergiOn/architecture/master/m
 
 kubectl rollout history deployment angular-deployment
 
+
+### Kops destroy
+
+kubectl delete deployment --all
+
+kubectl delete services --all
+
+
+kops delete cluster architectso-k8s.k8s.local --yes
+
+aws s3 rb s3://architectso-k8s-bucket --force
+
