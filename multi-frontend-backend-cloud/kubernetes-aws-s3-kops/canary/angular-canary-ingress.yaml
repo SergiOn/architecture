@@ -7,7 +7,7 @@ metadata:
     kubernetes.io/ingress.class: "nginx"
     nginx.ingress.kubernetes.io/use-regex: "true"
     nginx.ingress.kubernetes.io/canary: "true"
-    nginx.ingress.kubernetes.io/canary-weight: "95"
+    nginx.ingress.kubernetes.io/canary-weight: "50"
 spec:
   rules:
     - host: "architectso.com"
