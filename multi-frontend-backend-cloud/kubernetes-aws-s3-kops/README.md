@@ -71,5 +71,42 @@ kops delete cluster architectso-k8s.k8s.local --yes
 aws s3 rb s3://architectso-k8s-bucket --force
 
 
+### Deploy
+
+#### Ingress
+
+kubectl apply -f https://raw.githubusercontent.com/SergiOn/architecture/master/multi-frontend-backend-cloud/kubernetes-aws-s3-kops/ingress/mandatory.yaml
+
+kubectl apply -f https://raw.githubusercontent.com/SergiOn/architecture/master/multi-frontend-backend-cloud/kubernetes-aws-s3-kops/ingress/ingress-l7/ingress-config-map.yaml
+
+kubectl apply -f https://raw.githubusercontent.com/SergiOn/architecture/master/multi-frontend-backend-cloud/kubernetes-aws-s3-kops/ingress/ingress-l7/ingress-service.yaml
+
+
+#### Frontend
+
+kubectl apply -f https://raw.githubusercontent.com/SergiOn/architecture/master/multi-frontend-backend-cloud/kubernetes-aws-s3-kops/frontend/angularjs-deployment.yaml
+
+kubectl apply -f https://raw.githubusercontent.com/SergiOn/architecture/master/multi-frontend-backend-cloud/kubernetes-aws-s3-kops/frontend/angularjs-service.yaml
+
+kubectl apply -f https://raw.githubusercontent.com/SergiOn/architecture/master/multi-frontend-backend-cloud/kubernetes-aws-s3-kops/frontend/angularjs-ingress.yaml
+
+kubectl apply -f https://raw.githubusercontent.com/SergiOn/architecture/master/multi-frontend-backend-cloud/kubernetes-aws-s3-kops/frontend/angular-deployment.yaml
+
+kubectl apply -f https://raw.githubusercontent.com/SergiOn/architecture/master/multi-frontend-backend-cloud/kubernetes-aws-s3-kops/frontend/angular-service.yaml
+
+kubectl apply -f https://raw.githubusercontent.com/SergiOn/architecture/master/multi-frontend-backend-cloud/kubernetes-aws-s3-kops/frontend/angular-ingress.yaml
+
+
+#### Frontend Canary
+
+kubectl apply -f 
+
+kubectl apply -f 
+
+kubectl apply -f 
+
+kubectl apply -f 
+
+kubectl apply -f 
 
 
