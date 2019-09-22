@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: java-greeting-deployment
+  labels:
+    app: java-greeting-app
+spec:
+  replicas: 2
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 2
+      maxSurge: 1
+  template:
+    metadata:
+      name: java-greeting
+      labels:
+        app: java-greeting-app
+    spec:
+      containers:
+        - name: java-greeting-container
+          image: serhiion/java-greeting:2019-08-05
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 80
+          env:
+            - name: TRANSLATION_SERVICE
+              value: "http://scala-translation-service"
+            - name: DESCRIPTION_SERVICE
+              value: "http://nodejs-description-service"
+            - name: FAMILY_SERVICE
+              value: "http://java-family-service"
+      restartPolicy: Always
+  selector:
+    matchLabels:
+      app: java-greeting-app

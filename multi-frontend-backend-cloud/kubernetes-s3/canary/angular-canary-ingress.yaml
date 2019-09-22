@@ -1,0 +1,34 @@
+apiVersion: networking.k8s.io/v1beta1
+#apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: angular-canary-ingress
+  annotations:
+    kubernetes.io/ingress.class: "nginx"
+    nginx.ingress.kubernetes.io/use-regex: "true"
+    nginx.ingress.kubernetes.io/canary: "true"
+    nginx.ingress.kubernetes.io/canary-weight: "95"
+spec:
+  rules:
+    - http:
+        paths:
+          - path: /accommodation
+            backend:
+              serviceName: angular-canary-service
+              servicePort: 80
+          - path: /accommodation-ssr
+            backend:
+              serviceName: angular-canary-service
+              servicePort: 80
+          - path: /payment
+            backend:
+              serviceName: angular-canary-service
+              servicePort: 80
+          - path: /confirmation
+            backend:
+              serviceName: angular-canary-service
+              servicePort: 80
+          - path: /.+
+            backend:
+              serviceName: angular-canary-service
+              servicePort: 80

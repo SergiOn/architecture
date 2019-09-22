@@ -33,6 +33,8 @@ docker hub image: serhiion/angular-s3:2019-09-22T09-33-08Z
 
 docker hub image: serhiion/angular-s3:2019-09-22T09-50-43Z
 
+docker hub image: serhiion/angular-s3:2019-09-22T13-58-23Z
+
 
 ## Commands
 

@@ -152,9 +152,13 @@ docker container run -d -p 4200:80 angular-s3:2019-09-22T09-33-08Z
 
 docker container run -d -p 4200:80 angular-s3:2019-09-22T09-50-43Z
 
+docker container run -d -p 4200:80 angular-s3:2019-09-22T13-58-23Z
+
 v1: angular-s3:2019-09-22T09-33-08Z
 
-v2: angular-s3:2019-09-22T09-50-43Z
+v2-broken: angular-s3:2019-09-22T09-50-43Z
+
+v2: angular-s3:2019-09-22T13-58-23Z
 
 
 #### Docker Hub
@@ -167,6 +171,8 @@ docker tag angular-s3:2019-09-22T09-33-08Z serhiion/angular-s3:2019-09-22T09-33-
 
 docker tag angular-s3:2019-09-22T09-50-43Z serhiion/angular-s3:2019-09-22T09-50-43Z
 
+docker tag angular-s3:2019-09-22T13-58-23Z serhiion/angular-s3:2019-09-22T13-58-23Z
+
 docker push serhiion/angularjs-s3:2019-09-22T08-46-39Z
 
 docker push serhiion/angularjs-s3:2019-09-22T08-54-48Z
@@ -174,4 +180,6 @@ docker push serhiion/angularjs-s3:2019-09-22T08-54-48Z
 docker push serhiion/angular-s3:2019-09-22T09-33-08Z
 
 docker push serhiion/angular-s3:2019-09-22T09-50-43Z
+
+docker push serhiion/angular-s3:2019-09-22T13-58-23Z
 
