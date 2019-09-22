@@ -1,6 +1,4 @@
-# Kubernetes with AWS, S3 bucket and Kops
-
-version: 1.12.3
+# Kubernetes with AWS S3 bucket
 
 
 ## Links
