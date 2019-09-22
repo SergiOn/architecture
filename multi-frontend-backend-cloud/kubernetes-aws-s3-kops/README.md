@@ -97,6 +97,27 @@ kubectl apply -f https://raw.githubusercontent.com/SergiOn/architecture/master/m
 kubectl apply -f https://raw.githubusercontent.com/SergiOn/architecture/master/multi-frontend-backend-cloud/kubernetes-aws-s3-kops/frontend/angular-ingress.yaml
 
 
+#### Backend
+
+kubectl apply -f https://raw.githubusercontent.com/SergiOn/architecture/master/multi-frontend-backend-cloud/kubernetes-aws-s3-kops/backend/java-family-deployment.yaml
+
+kubectl apply -f https://raw.githubusercontent.com/SergiOn/architecture/master/multi-frontend-backend-cloud/kubernetes-aws-s3-kops/backend/java-family-service.yaml
+
+kubectl apply -f https://raw.githubusercontent.com/SergiOn/architecture/master/multi-frontend-backend-cloud/kubernetes-aws-s3-kops/backend/java-greeting-deployment.yaml
+
+kubectl apply -f https://raw.githubusercontent.com/SergiOn/architecture/master/multi-frontend-backend-cloud/kubernetes-aws-s3-kops/backend/java-greeting-service.yaml
+
+kubectl apply -f https://raw.githubusercontent.com/SergiOn/architecture/master/multi-frontend-backend-cloud/kubernetes-aws-s3-kops/backend/nodejs-description-deployment.yaml
+
+kubectl apply -f https://raw.githubusercontent.com/SergiOn/architecture/master/multi-frontend-backend-cloud/kubernetes-aws-s3-kops/backend/nodejs-description-service.yaml
+
+kubectl apply -f https://raw.githubusercontent.com/SergiOn/architecture/master/multi-frontend-backend-cloud/kubernetes-aws-s3-kops/backend/scala-translation-deployment.yaml
+
+kubectl apply -f https://raw.githubusercontent.com/SergiOn/architecture/master/multi-frontend-backend-cloud/kubernetes-aws-s3-kops/backend/scala-translation-service.yaml
+
+kubectl apply -f https://raw.githubusercontent.com/SergiOn/architecture/master/multi-frontend-backend-cloud/kubernetes-aws-s3-kops/backend/backend-ingress-api.yaml
+
+
 #### Frontend Canary with broken angular
 
 kubectl apply -f https://raw.githubusercontent.com/SergiOn/architecture/master/multi-frontend-backend-cloud/kubernetes-aws-s3-kops/canary/angularjs-canary-deployment.yaml
@@ -111,10 +132,48 @@ kubectl apply -f https://raw.githubusercontent.com/SergiOn/architecture/master/m
 
 kubectl apply -f https://raw.githubusercontent.com/SergiOn/architecture/master/multi-frontend-backend-cloud/kubernetes-aws-s3-kops/canary/angular-canary-ingress.yaml
 
-kubectl apply -f 
-
-kubectl apply -f 
-
 
 #### Frontend Canary without broken angular
+
+kubectl apply -f https://raw.githubusercontent.com/SergiOn/architecture/master/multi-frontend-backend-cloud/kubernetes-aws-s3-kops/canary/angular-canary-deployment.yaml
+
+
+#### Frontend Canary delete
+
+kubectl delete -f https://raw.githubusercontent.com/SergiOn/architecture/master/multi-frontend-backend-cloud/kubernetes-aws-s3-kops/canary/angularjs-canary-deployment.yaml
+
+kubectl delete -f https://raw.githubusercontent.com/SergiOn/architecture/master/multi-frontend-backend-cloud/kubernetes-aws-s3-kops/canary/angularjs-canary-service.yaml
+
+kubectl delete -f https://raw.githubusercontent.com/SergiOn/architecture/master/multi-frontend-backend-cloud/kubernetes-aws-s3-kops/canary/angularjs-canary-ingress.yaml
+
+kubectl delete -f https://raw.githubusercontent.com/SergiOn/architecture/master/multi-frontend-backend-cloud/kubernetes-aws-s3-kops/canary/angular-canary-deployment.yaml
+
+kubectl delete -f https://raw.githubusercontent.com/SergiOn/architecture/master/multi-frontend-backend-cloud/kubernetes-aws-s3-kops/canary/angular-canary-service.yaml
+
+kubectl delete -f https://raw.githubusercontent.com/SergiOn/architecture/master/multi-frontend-backend-cloud/kubernetes-aws-s3-kops/canary/angular-canary-ingress.yaml
+
+
+#### Frontend Rolling update
+
+kubectl apply -f https://raw.githubusercontent.com/SergiOn/architecture/master/multi-frontend-backend-cloud/kubernetes-aws-s3-kops/frontend/angularjs-deployment-new.yaml --record
+
+kubectl rollout status deployment angularjs-deployment
+
+kubectl rollout history deployment angularjs-deployment
+
+
+kubectl apply -f https://raw.githubusercontent.com/SergiOn/architecture/master/multi-frontend-backend-cloud/kubernetes-aws-s3-kops/frontend/angular-deployment-new-broken.yaml --record
+
+kubectl rollout status deployment angular-deployment
+
+kubectl rollout history deployment angular-deployment
+
+
+#### Frontend Rollout with correct deploy
+
+kubectl rollout undo deployment angular-deployment --to-revision=1
+
+kubectl apply -f https://raw.githubusercontent.com/SergiOn/architecture/master/multi-frontend-backend-cloud/kubernetes-aws-s3-kops/frontend/angular-deployment-new.yaml --record
+
+kubectl rollout history deployment angular-deployment
 
