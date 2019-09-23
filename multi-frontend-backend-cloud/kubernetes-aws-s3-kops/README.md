@@ -177,6 +177,12 @@ kubectl apply -f https://raw.githubusercontent.com/SergiOn/architecture/master/m
 
 kubectl rollout history deployment angular-deployment
 
+kubectl get pods -o wide
+
+kubectl top node
+
+kubectl top pod
+
 
 ### Kops destroy
 
