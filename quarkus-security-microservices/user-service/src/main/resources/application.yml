@@ -1,0 +1,20 @@
+quarkus:
+  resteasy:
+    path: "/user"
+  http:
+    port: 8083
+  log:
+    console:
+      json: false
+#        pretty-print: true
+#        date-format: "YYYY-MM-dd HH:mm:ss"
+#        exception-output-type: "detailed-and-formatted"
+
+#com:
+#  so:
+#    user:
+#      security:
+#        client:
+#          AuthorizationServiceClient/mp-rest/url: "http://localhost:8081/authorization"
+
+authorization-service-client/mp-rest/url: "http://localhost:8081/authorization"

@@ -23,3 +23,11 @@ https://quarkus.io/guides/security-jwt
 
 https://github.com/quarkusio/quarkus/tree/main/extensions/smallrye-jwt
 
+
+## Quarkus security microservices
+
+#### About
+
+Implementation security in the microservice architecture with
+authorization service, authentication service and user service
+
